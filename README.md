@@ -1,1 +1,1 @@
-# nextjs-typescript-chakra
+# Next.js + Typescript + Tailwind CSS
