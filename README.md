@@ -1,1 +1,1 @@
-# Next.js + Typescript + Tailwind CSS
+https://adel.lol/
