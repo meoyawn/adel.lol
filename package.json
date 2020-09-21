@@ -1,0 +1,43 @@
+{
+  "dependencies": {
+    "@tailwindui/react": "^0.1.1",
+    "classnames": "^2.2.6",
+    "next-compose-plugins": "^2.2.0",
+    "next-optimized-images": "^2.6.2",
+    "next": "^9.5.1",
+    "react-dom": "^16.13.1",
+    "react-ga": "^3.1.2",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/ui": "^0.6.0",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^26.0.7",
+    "@types/node": "^14.0.25",
+    "@types/react": "^16.9.43",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint": "^7.5.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^8.0.0",
+    "jest": "^26.1.0",
+    "responsive-loader": "^2.1.1",
+    "sharp": "^0.26.0",
+    "sitemap": "^6.2.0",
+    "tailwindcss": "^1.8.6",
+    "ts-jest": "^26.1.3",
+    "typescript": "^4.0.2"
+  },
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "export": "next export",
+    "lint": "eslint --fix src --ext .js,.jsx,.ts,.tsx",
+    "start": "next start",
+    "test": "jest"
+  }
+}
