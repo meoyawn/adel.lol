@@ -23,13 +23,22 @@ export default function SEO({
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      {image && (
+        <>
+          <meta property="og:image" content={image} />
+          <meta property="og:image:alt" content={title} />
+        </>
+      )}
 
       <meta name="twitter:card" content={twitterCard} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
-      <meta name="twitter:image:alt" content={description} />
+      {image && (
+        <>
+          <meta name="twitter:image" content={image} />
+          <meta name="twitter:image:alt" content={title} />
+        </>
+      )}
 
       {twitterSite && <meta name="twitter:site" content={twitterSite} />}
 

@@ -22,7 +22,7 @@ export default class MyDocument extends Document {
           {process.env.THEME_COLOR && <meta name="theme-color" content={process.env.THEME_COLOR} />}
         </Head>
 
-        <body>
+        <body className="dark:bg-gray-900">
           <Main />
           <NextScript />
         </body>
