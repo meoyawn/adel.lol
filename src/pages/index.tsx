@@ -17,7 +17,6 @@ export default function Index(): JSX.Element {
       <SEO
         title="Adel Nizamutdinov"
         description="Personal Website"
-        twitterSite="@meoyawn"
       />
 
       <h1>Adel Nizamutdinov</h1>
