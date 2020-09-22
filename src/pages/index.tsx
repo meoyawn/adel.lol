@@ -32,17 +32,17 @@ export default function Index(): JSX.Element {
           </tr>
           <tr>
             <td className="font-mono">2012 — 2014</td>
-            <td align="right"><External href="https://4pda.ru/2012/07/22/66795/">VK Vibes</External></td>
+            <td align="right"><External href="https://4pda.ru/2012/07/22/66795">VK Vibes</External></td>
           </tr>
           <tr>
             <td className="font-mono">2019 —</td>
             <td align="right">
-              <External href="https://listenbox.app/"><b className="font-extrabold">Listenbox</b></External>
+              <External href="https://listenbox.app"><b className="font-extrabold">Listenbox</b></External>
             </td>
           </tr>
           <tr>
             <td className="font-mono">2020 —</td>
-            <td align="right"><External href="">Sumptum</External></td>
+            <td align="right"><External href="https://sumptum.com">Sumptum</External></td>
           </tr>
         </tbody>
       </table>
