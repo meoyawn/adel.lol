@@ -49,11 +49,11 @@ export default function Index(): JSX.Element {
 
       <div className="text-center">
         <External href="https://github.com/meoyawn">GitHub</External>
-        <span> • </span>
+        <span> · </span>
         <External href="mailto:stiggpwnz@gmail.com">Email</External>
-        <span> • </span>
+        <span> · </span>
         <External href="https://t.me/meoyawn">Telegram</External>
-        <span> • </span>
+        <span> · </span>
         <External href="https://twitter.com/meoyawn">Twitter</External>
       </div>
     </div>
