@@ -31,9 +31,7 @@ export default function Index(): JSX.Element {
 
           <tr>
             <td className="font-mono">2019 —</td>
-            <td align="right">
-              <External href="https://listenbox.app"><b className="font-extrabold">Listenbox</b></External>
-            </td>
+            <td align="right"><External href="https://listenbox.app">Listenbox</External></td>
           </tr>
 
           <tr>
@@ -49,8 +47,6 @@ export default function Index(): JSX.Element {
         <External href="mailto:stiggpwnz@gmail.com">Email</External>
         <span> · </span>
         <External href="https://t.me/meoyawn">Telegram</External>
-        <span> · </span>
-        <External href="https://twitter.com/meoyawn">Twitter</External>
       </div>
     </div>
   )
