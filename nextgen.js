@@ -78,7 +78,7 @@ function genManifest() {
     background_color: dotEnv.THEME_COLOR, // splash screen
   }
 
-  fs.writeFileSync(path.join("public", dotEnv.MANIFEST), JSON.stringify(manifest))
+  fs.writeFileSync(path.join("public", "site.webmanifest"), JSON.stringify(manifest))
 }
 
 genIcons()

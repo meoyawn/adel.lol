@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon16.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon32.png" />
 
-          <link rel="manifest" href={process.env.MANIFEST} />
+          <link rel="manifest" href="/site.webmanifest" />
 
           {process.env.THEME_COLOR && <meta name="theme-color" content={process.env.THEME_COLOR} />}
         </Head>
