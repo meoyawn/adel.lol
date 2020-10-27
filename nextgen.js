@@ -14,6 +14,20 @@ const readEnv = path =>
 
 const dotEnv = Object.assign(...[".env", ".env.production"].map(readEnv))
 
+function genIcons() {
+  const iconsDir = path.join("public", "icons");
+  fs.rmSync(iconsDir, { recursive: true, force: true })
+  fs.mkdirSync(iconsDir)
+
+  const icon = sharp("src/images/icon.png")
+
+  for (const size of [16, 32, 192, 200, 512]) {
+    icon
+      .resize(size, size)
+      .toFile(path.join(iconsDir, `icon${size}.png`))
+  }
+}
+
 function genSitemap() {
   if (!dotEnv.NEXT_PUBLIC_SITE) {
     throw new Error("define env.NEXT_PUBLIC_SITE to generate a sitemap")
@@ -46,34 +60,27 @@ function genSitemap() {
 }
 
 function genManifest() {
-  const icons = [
-    {
-      src: "/manifest/icon-192x192.png",
-      sizes: "192x192",
-      type: "image/png"
-    },
-    {
-      src: "/manifest/icon-512x512.png",
-      sizes: "512x512",
-      type: "image/png"
-    }
-  ]
-
-  const icon = sharp("src/images/icon.png")
-  icons.forEach(({ src, sizes }) => {
-    const [w, h] = sizes.split("x").map(s => parseInt(s))
-    icon.resize(w, h).toFile(`public${src}`)
-  })
-
   const manifest = {
+    icons: [
+      {
+        src: "/icons/icon192.png",
+        sizes: "192x192",
+        type: "image/png"
+      },
+      {
+        src: "/icons/icon512.png",
+        sizes: "512x512",
+        type: "image/png"
+      }
+    ],
     name: dotEnv.SITE_NAME,
-    icons: icons,
     theme_color: dotEnv.THEME_COLOR, // browser toolbar
     background_color: dotEnv.THEME_COLOR, // splash screen
   }
 
-  fs.writeFileSync(`public${dotEnv.MANIFEST}`, JSON.stringify(manifest))
+  fs.writeFileSync(path.join("public", dotEnv.MANIFEST), JSON.stringify(manifest))
 }
 
+genIcons()
 genSitemap()
 genManifest()

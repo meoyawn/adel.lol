@@ -5,8 +5,11 @@ node_modules/
 yarn-error.log
 
 gen/
+
+public/icons/
 public/sitemap.xml
-public/manifest/
+public/site.webmanifest
+
 out/
 
 .vercel

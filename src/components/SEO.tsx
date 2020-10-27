@@ -1,13 +1,11 @@
 import Head from "next/head";
 import React, { ReactNode } from "react";
 
-const img = require("../images/icon.png?size=200")
-
 export default function SEO({
   title,
   children,
   description,
-  image = `${process.env.NEXT_PUBLIC_SITE}${img}`,
+  image = `${process.env.NEXT_PUBLIC_SITE}/icons/icon200.png`,
   twitterCard = "summary",
   twitterSite = "@meoyawn",
 }: {
