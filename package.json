@@ -7,7 +7,7 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "@tailwindcss/ui": "^0.6.0",
+    "@tailwindcss/ui": "^0.7.2",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.7",
     "@types/node": "^14.0.25",
