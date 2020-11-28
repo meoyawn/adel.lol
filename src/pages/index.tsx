@@ -13,7 +13,7 @@ const External = ({ href, children }: PropsWithChildren<{ href: string }>) => (
 
 export default function Index(): JSX.Element {
   return (
-    <div className="prose sm:prose-lg dark:prose-dark">
+    <div className="prose-lg dark:prose-dark-lg">
       <SEO
         title="Adel Nizamutdinov"
         description="Personal Website"
