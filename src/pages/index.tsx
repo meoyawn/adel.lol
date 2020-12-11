@@ -20,8 +20,8 @@ export default function Index(): JSX.Element {
       />
 
       <h1>Adel Nizamutdinov</h1>
-      <p>I live in Kazan and make software</p>
-      <h2>Projects</h2>
+      <p>Building things for fun and profit</p>
+
       <table>
         <tbody>
           <tr>
