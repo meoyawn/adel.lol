@@ -11,6 +11,7 @@ const External = ({ href, children }: PropsWithChildren<{ href: string }>) => (
   </a>
 )
 
+// noinspection JSUnusedGlobalSymbols
 export default function Index(): JSX.Element {
   return (
     <div className="prose sm:prose-lg dark:prose-dark">
