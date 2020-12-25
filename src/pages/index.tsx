@@ -1,8 +1,8 @@
-import React, { PropsWithChildren } from "react"
+import React, { ReactNode } from "react"
 
 import SEO from "../components/SEO"
 
-const External = ({ href, children }: PropsWithChildren<{ href: string }>) => (
+const External = ({ href, children }: { href: string, children: ReactNode }) => (
   <a
     className="hover:underline duration-200 font-medium dark:text-white"
     href={href}
@@ -35,7 +35,7 @@ export default function Index(): JSX.Element {
       <div
         className="rounded-xl bg-indigo-800 text-white p-5 transform hover:-translate-y-0.5 hover:shadow-xl dark:hover:shadow-dark-lg duration-200"
       >
-        <p className="font-medium">Hopefully releasing something in 2021</p>
+        <p className="font-medium">Coming in 2021...</p>
       </div>
 
       <div className="text-center">
