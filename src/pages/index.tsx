@@ -16,7 +16,7 @@ const External = ({ href, children }: PropsWithChildren<{ href: string }>) => (
 // noinspection JSUnusedGlobalSymbols
 export default function Index(): JSX.Element {
   return (
-    <div className="flex flex-col space-y-8">
+    <div className="flex flex-col space-y-5">
       <SEO
         title="Adel Nizamutdinov"
         description="Personal Website"
@@ -31,6 +31,12 @@ export default function Index(): JSX.Element {
         <p className="text-xl font-semibold">Listenbox</p>
         <p>YouTube as a podcast</p>
       </a>
+
+      <div
+        className="rounded-xl bg-indigo-800 text-white p-5 transform hover:-translate-y-0.5 hover:shadow-xl dark:hover:shadow-dark-lg duration-200"
+      >
+        <p className="font-medium">Hopefully releasing something in 2021</p>
+      </div>
 
       <div className="text-center">
         <External href="https://github.com/meoyawn">GitHub</External>
