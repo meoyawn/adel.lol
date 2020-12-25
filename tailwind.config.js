@@ -1,5 +1,6 @@
 // See https://tailwindcss.com/docs/configuration for details
 module.exports = {
+  darkMode: 'media',
   plugins: [],
   purge: {
     content: [
@@ -8,10 +9,6 @@ module.exports = {
   },
   theme: {
     extend: {
-      screens: {
-        'dark': { raw: '(prefers-color-scheme: dark)' },
-        'light': { raw: '(prefers-color-scheme: light)' },
-      },
       colors: {},
       width: {},
       boxShadow: {
@@ -23,4 +20,9 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {
+      boxShadow: ['dark'],
+    }
+  }
 }
