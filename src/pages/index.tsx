@@ -23,7 +23,7 @@ export default function Index(): JSX.Element {
       />
 
       <a
-        className="rounded-xl bg-black text-white p-5 transform hover:-translate-y-0.5 shadow-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
+        className="rounded-xl bg-black text-white p-5 transform hover:-translate-y-0.5 shadow-md dark:shadow-dark-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
         href="https://listenbox.app"
         target="_blank"
         rel="noreferrer"
@@ -33,7 +33,7 @@ export default function Index(): JSX.Element {
       </a>
 
       <a
-        className="rounded-xl bg-yellow-50 text-black p-5 transform hover:-translate-y-0.5 shadow-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
+        className="rounded-xl bg-yellow-50 text-black p-5 transform hover:-translate-y-0.5 shadow-md dark:shadow-dark-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
         href="https://storagecast.vercel.app/"
         target="_blank"
         rel="noreferrer"
@@ -43,7 +43,7 @@ export default function Index(): JSX.Element {
       </a>
 
       <div
-        className="rounded-xl bg-indigo-800 text-white p-5 transform hover:-translate-y-0.5 shadow-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
+        className="rounded-xl bg-indigo-800 text-white p-5 transform hover:-translate-y-0.5 shadow-md dark:shadow-dark-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
       >
         <p className="font-medium">Coming in 2021...</p>
       </div>
