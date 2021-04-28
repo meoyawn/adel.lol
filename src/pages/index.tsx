@@ -23,7 +23,7 @@ export default function Index(): JSX.Element {
       />
 
       <a
-        className="rounded-xl bg-black text-white p-5 transform hover:-translate-y-0.5 hover:shadow-xl dark:hover:shadow-dark-lg duration-200"
+        className="rounded-xl bg-black text-white p-5 transform hover:-translate-y-0.5 shadow-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
         href="https://listenbox.app"
         target="_blank"
         rel="noreferrer"
@@ -32,18 +32,26 @@ export default function Index(): JSX.Element {
         <p>YouTube as a podcast</p>
       </a>
 
+      <a
+        className="rounded-xl bg-yellow-50 text-black p-5 transform hover:-translate-y-0.5 shadow-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
+        href="https://storagecast.vercel.app/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <p className="text-xl font-semibold">Storagecast</p>
+        <p>Yandex.Disk as a podcast</p>
+      </a>
+
       <div
-        className="rounded-xl bg-indigo-800 text-white p-5 transform hover:-translate-y-0.5 hover:shadow-xl dark:hover:shadow-dark-lg duration-200"
+        className="rounded-xl bg-indigo-800 text-white p-5 transform hover:-translate-y-0.5 shadow-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
       >
         <p className="font-medium">Coming in 2021...</p>
       </div>
 
       <div className="text-center">
-        <External href="https://github.com/meoyawn">GitHub</External>
-        <span> · </span>
         <External href="mailto:stiggpwnz@gmail.com">Email</External>
         <span> · </span>
-        <External href="https://t.me/meoyawn">Telegram</External>
+        <External href="https://github.com/meoyawn">GitHub</External>
       </div>
     </div>
   )
