@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react"
+import classNames from 'classnames'
 
 import SEO from "../components/SEO"
 
@@ -13,40 +14,52 @@ const External = ({ href, children }: { href: string, children: ReactNode }) => 
   </a>
 )
 
+const Bubble = ({ title, subtitle, className, href }: {
+  title: string
+  subtitle: string
+  className: string
+  href: string
+}) => (
+  <a
+    className={classNames("rounded-xl  p-5 transform hover:-translate-y-0.5 shadow-md dark:shadow-dark-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300", className)}
+    href={href}
+    target="_blank"
+    rel="noreferrer"
+  >
+    <p className="text-xl font-semibold">{title}</p>
+    <p>{subtitle}</p>
+  </a>
+)
+
 // noinspection JSUnusedGlobalSymbols
 export default function Index(): JSX.Element {
   return (
     <div className="flex flex-col space-y-5">
       <SEO
         title="Adel Nizamutdinov"
-        description="Personal Website"
+        description="it me"
       />
 
-      <a
-        className="rounded-xl bg-black text-white p-5 transform hover:-translate-y-0.5 shadow-md dark:shadow-dark-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
+      <Bubble
+        title="Arrowbox"
+        subtitle="Rapid diagramming"
+        className="bg-indigo-700 text-white"
+        href="https://arrowbox.co"
+      />
+
+      <Bubble
+        title="Listenbox"
+        subtitle="YouTube as a podcast"
+        className="bg-black text-white"
         href="https://listenbox.app"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <p className="text-xl font-semibold">Listenbox</p>
-        <p>YouTube as a podcast</p>
-      </a>
+      />
 
-      <a
-        className="rounded-xl bg-yellow-50 text-black p-5 transform hover:-translate-y-0.5 shadow-md dark:shadow-dark-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
-        href="https://storagecast.vercel.app/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <p className="text-xl font-semibold">Storagecast</p>
-        <p>Yandex.Disk as a podcast</p>
-      </a>
-
-      <div
-        className="rounded-xl bg-indigo-800 text-white p-5 transform hover:-translate-y-0.5 shadow-md dark:shadow-dark-md hover:shadow-xl dark:hover:shadow-dark-lg duration-300"
-      >
-        <p className="font-medium">Coming in 2021...</p>
-      </div>
+      <Bubble
+        title="Storagecast"
+        subtitle="Yandex.Disk as a podcast"
+        className="bg-yellow-50 text-black"
+        href="https://storagecast.vercel.app"
+      />
 
       <div className="text-center">
         <External href="mailto:stiggpwnz@gmail.com">Email</External>
