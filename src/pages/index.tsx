@@ -44,7 +44,7 @@ export default function Index(): JSX.Element {
         title="Arrowbox"
         subtitle="Rapid diagramming"
         className="bg-indigo-800 text-white"
-        href="https://alpha.arrowbox.co"
+        href="https://arrowbox.co"
       />
 
       <Bubble
