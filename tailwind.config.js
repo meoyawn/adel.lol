@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: colors.sky[600],
+        accent: colors.sky[700],
       },
     },
   },
