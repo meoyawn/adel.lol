@@ -39,7 +39,7 @@ const tools: ReadonlyArray<ListItem> = [
   },
   {
     name: "Responsible",
-    subtitle: "OpenAPI-like DSL with server verification and client generation",
+    subtitle: "OpenAPI-like DSL for server verification and client generation",
     href: "https://github.com/meoyawn/responsible",
     image:
       "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 1024 1024'%3E%3Cpath fill='%231B1F23' fill-rule='evenodd' d='M512 0A511.9 511.9 0 0 0 0 512c0 226.6 146.6 418 350 485.8 25.7 4.4 35.3-11 35.3-24.4 0-12.1-.7-52.4-.7-95.3-128.6 23.7-161.9-31.4-172.1-60.2-5.8-14.7-30.7-60.1-52.5-72.3-18-9.6-43.5-33.3-.6-34 40.3-.6 69 37.2 78.7 52.6 46 77.4 119.7 55.6 149.1 42.2 4.5-33.3 18-55.7 32.6-68.5-113.9-12.8-233-57-233-252.8 0-55.7 20-101.7 52.6-137.6-5.2-12.8-23-65.3 5-135.7 0 0 43-13.4 140.9 52.5a475 475 0 0 1 128-17.3c43.5 0 87 5.8 128 17.3 97.9-66.5 140.8-52.5 140.8-52.5 28.1 70.4 10.2 123 5.1 135.7a198.1 198.1 0 0 1 52.5 137.6c0 196.5-119.7 240-233.6 252.8 18.5 16 34.5 46.7 34.5 94.7 0 68.5-.6 123.6-.6 140.8 0 13.5 9.6 29.5 35.2 24.4A512.8 512.8 0 0 0 1024 512C1024 229.1 794.9 0 512 0Z' clip-rule='evenodd'/%3E%3C/svg%3E",
@@ -71,7 +71,7 @@ export const TheTabs = () => (
   <Tab.Group>
     <div className="border-b border-gray-200">
       <div className="sm:flex sm:items-baseline">
-        <h1 className="text-lg font-medium leading-6 text-gray-900">
+        <h1 className="text-xl font-medium leading-6 text-gray-900">
           Making new stuff
         </h1>
 
