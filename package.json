@@ -5,9 +5,13 @@
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "classnames": "^2.3.1",
-    "next": "^12.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "next": "^12.3.1",
+    "next-plugin-preact": "^3.0.7",
+    "preact": "^10.11.1",
+    "preact-render-to-string": "^5.2.5",
+    "react": "npm:@preact/compat",
+    "react-dom": "npm:@preact/compat",
+    "react-ssr-prepass": "npm:preact-ssr-prepass"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",
