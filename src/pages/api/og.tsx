@@ -1,5 +1,6 @@
 import { ImageResponse } from "@vercel/og"
 
+// noinspection JSUnusedGlobalSymbols
 export const config = {
   runtime: "experimental-edge",
 } as const
