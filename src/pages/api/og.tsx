@@ -6,7 +6,7 @@ export const config = {
 }
 
 // noinspection JSUnusedGlobalSymbols
-export default async function OgImage(): Promise<ImageResponse> {
+export default async function OpenGraphImage(): Promise<ImageResponse> {
   return new ImageResponse(
     (
       <div
@@ -19,21 +19,14 @@ export default async function OgImage(): Promise<ImageResponse> {
           justifyContent: "center",
           backgroundColor: "white",
         }}
+        tw="text-8xl font-black"
       >
-        <div tw="flex bg-white">
-          <div tw="flex mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-            <div tw="flex text-center">
-              <p tw="mt-1 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-                Adel Nizamutdinov
-              </p>
-            </div>
-          </div>
-        </div>
+        <p>Adel</p>
+        <p>Nizamutdinov</p>
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      emoji: "twemoji",
     },
   )
 }

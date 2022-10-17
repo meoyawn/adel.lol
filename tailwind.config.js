@@ -3,7 +3,7 @@ const colors = require("tailwindcss/colors")
 /** @type {import("tailwindcss").Config} */
 module.exports = {
   content: ["./src/**/*.{jsx,tsx}"],
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
   theme: {
     extend: {
       colors: {

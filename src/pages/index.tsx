@@ -15,7 +15,7 @@ export default function Home() {
         <meta property="og:title" content="Adel Nizamutdinov" />
         <meta
           property="og:image"
-          content={`${process.env.NEXT_PUBLIC_SITE}/api/og`}
+          content={`${process.env.NEXT_PUBLIC_SITE}/img/og.jpg`}
         />
 
         <link

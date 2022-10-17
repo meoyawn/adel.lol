@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 
 type HttpURL = `https://${string}`
 
@@ -6,7 +7,7 @@ export interface ListItem {
   readonly name: string
   readonly subtitle: string
   readonly href: HttpURL
-  readonly image?: HttpURL | `data:image/svg+xml${string}`
+  readonly svg?: `data:image/svg+xml${string}`
 }
 
 export const StackedList = ({ items }: { items: ReadonlyArray<ListItem> }) => (
@@ -19,11 +20,12 @@ export const StackedList = ({ items }: { items: ReadonlyArray<ListItem> }) => (
           href={item.href}
           className="flex rounded-sm px-2 py-4 duration-300 hover:bg-neutral-100"
         >
-          {item.image ? (
+          {item.svg ? (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               className="h-10 w-10 rounded-full"
-              src={item.image}
-              alt={`${item.name} image`}
+              src={item.svg}
+              alt={`${item.name} icon`}
             />
           ) : (
             <div className="h-10 w-10 rounded-full bg-gradient-to-br from-accent to-red-600" />
