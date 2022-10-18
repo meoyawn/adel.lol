@@ -3,6 +3,7 @@ import { GetStaticProps } from "next"
 
 import { ogImage } from "../lib/web"
 import Image from "next/image"
+import Head from "next/head"
 
 interface Props {
   ogImages: Record<string, string>
@@ -536,22 +537,24 @@ const Header = ({
         <span>{email}</span>
       </a>
 
-      <a
-        className="space-x-1"
-        target="_blank"
-        rel="noreferrer"
-        href={`tel:${phone}`}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 16 16"
-          fill="currentColor"
-          className="inline h-4 w-4"
+      {phone ? (
+        <a
+          className="space-x-1"
+          target="_blank"
+          rel="noreferrer"
+          href={`tel:${phone}`}
         >
-          <path d="M4.18 11.82C6.62 14.26 8.64 15 10.79 15a3.76 3.76 0 002.66-1.1l1.32-1.32a.8.8 0 000-1.13L11.6 8.29a1 1 0 00-.69-.29 1 1 0 00-.42.09l-1.67.73-1.64-1.64.73-1.67A1 1 0 008 5.09a1 1 0 00-.29-.69L4.55 1.23a.8.8 0 00-1.13 0L2.1 2.55A3.76 3.76 0 001 5.21c0 2.15.74 4.17 3.18 6.61zm1.24-1.24c-2.34-2.34-2.67-4-2.67-5.37a2 2 0 01.59-1.42L4 3.14l2 2-1 2.32L8.54 11l2.29-1 2 2-.65.65a2 2 0 01-1.42.59c-1.38.01-3-.31-5.34-2.66z" />
-        </svg>
-        <span>{phone}</span>
-      </a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            className="inline h-4 w-4"
+          >
+            <path d="M4.18 11.82C6.62 14.26 8.64 15 10.79 15a3.76 3.76 0 002.66-1.1l1.32-1.32a.8.8 0 000-1.13L11.6 8.29a1 1 0 00-.69-.29 1 1 0 00-.42.09l-1.67.73-1.64-1.64.73-1.67A1 1 0 008 5.09a1 1 0 00-.29-.69L4.55 1.23a.8.8 0 00-1.13 0L2.1 2.55A3.76 3.76 0 001 5.21c0 2.15.74 4.17 3.18 6.61zm1.24-1.24c-2.34-2.34-2.67-4-2.67-5.37a2 2 0 01.59-1.42L4 3.14l2 2-1 2.32L8.54 11l2.29-1 2 2-.65.65a2 2 0 01-1.42.59c-1.38.01-3-.31-5.34-2.66z" />
+          </svg>
+          <span>{phone}</span>
+        </a>
+      ) : null}
 
       <a
         className="space-x-1"
@@ -595,13 +598,20 @@ const Summary = ({ children }: { children: ReactNode }): JSX.Element => (
 
 // noinspection JSUnusedGlobalSymbols
 export default function CV({ ogImages }: Props): JSX.Element {
+  const name = "Adel Nizamutdinov"
+
   return (
     <div className="prose prose-sm prose-sky m-6 flex max-w-none flex-col print:m-0 sm:m-16">
+      <Head>
+        <title>{`CV - ${name}`}</title>
+        <meta name="description" content="Making new stuff" />
+      </Head>
+
       <Header
-        name={"Adel Nizamutdinov"}
-        location={"United States or Remote"}
+        name={name}
+        location="United States or Remote"
         email="mail@adel.lol"
-        phone="+15054448157"
+        phone={undefined}
         website="https://adel.lol"
         linkedin="adelnizamuddin"
       />

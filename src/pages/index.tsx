@@ -5,18 +5,15 @@ import { TheTabs } from "../app/TheTabs"
 
 // noinspection JSUnusedGlobalSymbols
 export default function Home() {
+  const title = "Adel Nizamutdinov"
+
   return (
     <div className="container mx-auto max-w-md py-8 px-4 sm:py-24">
       <Head>
-        <title>Adel Nizamutdinov</title>
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
 
         <meta name="description" content="Making new stuff" />
-
-        <meta property="og:title" content="Adel Nizamutdinov" />
-        <meta
-          property="og:image"
-          content={`${process.env.NEXT_PUBLIC_SITE}/img/og.jpg`}
-        />
       </Head>
 
       <TheTabs />
