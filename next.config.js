@@ -19,6 +19,8 @@ const nextConfig = {
       "yastatic.net",
       "eng.kpfu.ru",
       "upload.wikimedia.org",
+      "telegram.org",
+      "www.acm.org",
     ],
   },
 }

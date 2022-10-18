@@ -33,6 +33,14 @@ const orgs = {
     name: "Kazan State University",
     url: "https://en.wikipedia.org/wiki/Kazan_Federal_University",
   },
+  telegram: {
+    name: "Telegram",
+    url: "https://telegram.org",
+  },
+  acm: {
+    name: "ACM",
+    url: "https://www.acm.org",
+  },
 } as const
 type OrgID = keyof typeof orgs
 
@@ -111,13 +119,6 @@ const products = {
 type ProductID = keyof typeof products
 
 const skills = {
-  crdt: "Conflict-free Replicated Data Types (CRDT)",
-
-  git: "Git",
-  docker: "Docker",
-  ffmpeg: "FFmpeg",
-  linux: "Linux",
-
   jvm: "Java Virtual Machine (JVM)",
   kotlin: "Kotlin",
   vertx: "Vert.x",
@@ -130,11 +131,18 @@ const skills = {
   tailwind: "Tailwind CSS",
   react: "React.js",
 
+  git: "Git",
+  docker: "Docker",
+  ffmpeg: "FFmpeg",
+  linux: "Linux",
+
   sqlite: "SQLite",
   postgres: "PostgreSQL",
 
   stripe: "Stripe",
   seo: "Search Engine Optimization (SEO)",
+
+  crdt: "Conflict-free Replicated Data Types (CRDT)",
 } as const
 type SkillID = keyof typeof skills
 
@@ -226,7 +234,7 @@ const experiences: ReadonlyArray<ExperienceProps> = [
     Description: () => (
       <>
         <span>Working on my own products.</span>
-        <ul className={"mt-0"}>
+        <ul className="m-0">
           <li>Bootstrapped a profitable SaaS</li>
         </ul>
       </>
@@ -260,7 +268,7 @@ const experiences: ReadonlyArray<ExperienceProps> = [
           developers.
         </span>
 
-        <ul className={"mt-0"}>
+        <ul className="m-0">
           <li>Redesigned the Passenger app</li>
           <li>Introduced UI (integration) tests</li>
         </ul>
@@ -282,7 +290,7 @@ const experiences: ReadonlyArray<ExperienceProps> = [
           Developed Android apps. Hired and technically led Android developers.
         </span>
 
-        <ul className={"mt-0"}>
+        <ul className={"m-0"}>
           <li>
             Created internal processes and infrastructure for Android
             development
@@ -313,7 +321,7 @@ const experiences: ReadonlyArray<ExperienceProps> = [
           <span>.</span>
         </span>
 
-        <ul className={"mt-0"}>
+        <ul className={"m-0"}>
           <li>Adapted UI for tablets</li>
           <li>Improved app performance</li>
           <li>Introduced application upgrade tests</li>
@@ -343,7 +351,7 @@ const experiences: ReadonlyArray<ExperienceProps> = [
           Did customer demos.
         </span>
 
-        <ul className="mt-0">
+        <ul className="m-0">
           <li>Built 4 apps from scratch</li>
           <li>Created internal processes for Android development</li>
           <li>Hired and led 3 Android developers</li>
@@ -353,6 +361,50 @@ const experiences: ReadonlyArray<ExperienceProps> = [
     skills: ["android", "sqlite"],
   },
 ]
+
+interface AwardProps {
+  org: OrgID
+  what: string
+  when: string
+  products: ReadonlyArray<ProductID>
+  url: string
+}
+
+const awards: ReadonlyArray<AwardProps> = [
+  {
+    org: "telegram",
+    url: "https://vk.com/wall1_1108590",
+    what: "Winner of Telegram Android Challenge 2016",
+    when: "Jul 2016",
+    products: [],
+  },
+  {
+    org: "acm",
+    url: "https://neerc.ifmo.ru/archive/2011/southern/standings.html",
+    what: "55th in 2011 ACM ICPC Quarterfinals",
+    when: "Oct 2011",
+    products: [],
+  },
+]
+
+const Award = ({ e }: { e: AwardProps }) => {
+  const org = orgs[e.org]
+
+  return (
+    <div>
+      <h3 className="m-0">
+        <a href={e.url} target="_blank" rel="noreferrer">
+          <strong>{e.what}</strong>
+        </a>
+        <span> - </span>
+        <span>{org.name}</span>
+      </h3>
+
+      <span>{e.when}</span>
+      <br />
+    </div>
+  )
+}
 
 const ExperienceChildren = ({ e }: { e: ExperienceProps }) => {
   const org = orgs[e.org]
@@ -391,12 +443,12 @@ const EducationChildren = ({ e }: { e: EducationProps }) => {
   )
 }
 
-const Experience = ({
+const OrgAndProducts = ({
   e,
   images,
   children,
 }: {
-  e: ExperienceProps | EducationProps
+  e: ExperienceProps | EducationProps | AwardProps
   images: Record<string, string>
   children: ReactNode
 }): JSX.Element => {
@@ -452,14 +504,20 @@ const Header = ({
   phone,
   website,
   linkedin,
+  name,
+  location,
 }: {
   email: string
   phone?: string
   website: string
   linkedin: string
+  name: string
+  location: string
 }) => (
   <section>
-    <h1 className="font-normal">Adel Nizamutdinov</h1>
+    <h1 className="mb-0 font-normal">{name}</h1>
+    <p className="mt-0">{location}</p>
+
     <div className="grid grid-cols-2">
       <a
         className="space-x-1"
@@ -540,6 +598,8 @@ export default function CV({ ogImages }: Props): JSX.Element {
   return (
     <div className="prose prose-sm prose-sky m-6 flex max-w-none flex-col print:m-0 sm:m-16">
       <Header
+        name={"Adel Nizamutdinov"}
+        location={"United States or Remote"}
         email="mail@adel.lol"
         phone="+15054448157"
         website="https://adel.lol"
@@ -559,29 +619,49 @@ export default function CV({ ogImages }: Props): JSX.Element {
 
       <section>
         <h2>Experience</h2>
-        <div className="flex  flex-col gap-6 print:gap-0">
+        <Things>
           {experiences.map(e => (
-            <Experience key={e.org} e={e} images={ogImages}>
+            <OrgAndProducts key={e.org} e={e} images={ogImages}>
               <ExperienceChildren e={e} />
-            </Experience>
+            </OrgAndProducts>
           ))}
-        </div>
+        </Things>
       </section>
 
       <section>
         <h2>Education</h2>
-        <div className="flex  flex-col gap-6 print:gap-0">
+        <Things>
           {education.map(e => (
-            <Experience key={e.org} e={e} images={ogImages}>
+            <OrgAndProducts key={e.org} e={e} images={ogImages}>
               <EducationChildren e={e} />
-            </Experience>
+            </OrgAndProducts>
           ))}
-        </div>
+        </Things>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <span
+          dangerouslySetInnerHTML={{
+            __html: Object.values(skills).join(" •&nbsp;"),
+          }}
+        />
       </section>
 
       <section>
         <h2>Honors & Awards</h2>
+        <Things>
+          {awards.map(e => (
+            <OrgAndProducts key={e.org} e={e} images={ogImages}>
+              <Award e={e} />
+            </OrgAndProducts>
+          ))}
+        </Things>
       </section>
     </div>
   )
 }
+
+const Things = ({ children }: { children: ReactNode }) => (
+  <div className="flex flex-col gap-6 print:gap-2">{children}</div>
+)
