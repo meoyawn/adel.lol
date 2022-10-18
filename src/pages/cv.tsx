@@ -9,6 +9,12 @@ interface Props {
   ogImages: Record<string, string>
 }
 
+interface Org {
+  name: string
+  url: string
+  logoURL?: string
+}
+
 const orgs = {
   agape: {
     name: "Agape Labs",
@@ -32,7 +38,9 @@ const orgs = {
   },
   ksu: {
     name: "Kazan State University",
-    url: "https://en.wikipedia.org/wiki/Kazan_Federal_University",
+    url: "https://eng.kpfu.ru",
+    logoURL:
+      "https://upload.wikimedia.org/wikipedia/commons/d/d2/Kazan_federal_university_emblem.png",
   },
   telegram: {
     name: "Telegram",
@@ -41,11 +49,18 @@ const orgs = {
   acm: {
     name: "ACM",
     url: "https://www.acm.org",
+    logoURL:
+      "https://upload.wikimedia.org/wikipedia/commons/8/8e/Association_for_Computing_Machinery_%28ACM%29_logo.svg",
   },
 } as const
 type OrgID = keyof typeof orgs
 
-type Product = { name: string; url: string; archiveImgURL?: string }
+interface Product {
+  name: string
+  url: string
+  archiveImgURL?: string
+}
+
 const products = {
   vibes: {
     name: "VK Vibes",
@@ -453,7 +468,7 @@ const OrgAndProducts = ({
   images: Record<string, string>
   children: ReactNode
 }): JSX.Element => {
-  const org = orgs[e.org]
+  const org = orgs[e.org] as Org
 
   return (
     <div className="flex flex-row gap-2">
@@ -468,7 +483,7 @@ const OrgAndProducts = ({
           height={24}
           loading="eager"
           className="object-cover"
-          src={images[org.url]}
+          src={org.logoURL ?? images[org.url]}
           alt={org.name}
         />
       </a>
@@ -601,7 +616,7 @@ export default function CV({ ogImages }: Props): JSX.Element {
   const name = "Adel Nizamutdinov"
 
   return (
-    <div className="prose prose-sm prose-sky m-6 flex max-w-none flex-col print:m-0 sm:m-16">
+    <div className="prose prose-sky m-6 flex max-w-none flex-col print:prose-sm print:m-0 sm:m-12 md:m-16">
       <Head>
         <title>{`CV - ${name}`}</title>
         <meta name="description" content="Making new stuff" />
