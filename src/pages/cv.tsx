@@ -23,6 +23,8 @@ const orgs = {
   wheely: {
     name: "Wheely",
     url: "https://wheely.com",
+    logoURL:
+      "https://cd.wheely.com/site/public/images/favicon/favicon-32x32.png",
   },
   infotech: {
     name: "Infotech Group",
@@ -233,7 +235,7 @@ const education: ReadonlyArray<EducationProps> = [
         <span> of Applied Mathematics and Computer Science</span>
       </>
     ),
-    start: "Sept 2010",
+    start: "Sep 2010",
     end: "Jul 2015",
     products: ["schedule", "vibes"],
   },
@@ -250,6 +252,7 @@ const experiences: ReadonlyArray<ExperienceProps> = [
     Description: () => (
       <>
         <span>Working on my own products.</span>
+
         <ul className="m-0">
           <li>Bootstrapped a profitable SaaS</li>
         </ul>
@@ -306,7 +309,7 @@ const experiences: ReadonlyArray<ExperienceProps> = [
           Developed Android apps. Hired and technically led Android developers.
         </span>
 
-        <ul className={"m-0"}>
+        <ul className="m-0">
           <li>
             Created internal processes and infrastructure for Android
             development
@@ -337,7 +340,7 @@ const experiences: ReadonlyArray<ExperienceProps> = [
           <span>.</span>
         </span>
 
-        <ul className={"m-0"}>
+        <ul className="m-0">
           <li>Adapted UI for tablets</li>
           <li>Improved app performance</li>
           <li>Introduced application upgrade tests</li>
@@ -408,13 +411,13 @@ const Award = ({ e }: { e: AwardProps }) => {
 
   return (
     <div>
-      <h3 className="m-0">
+      <h4 className="mb-0">
         <a href={e.url} target="_blank" rel="noreferrer">
           <strong>{e.what}</strong>
         </a>
         <span> - </span>
         <span>{org.name}</span>
-      </h3>
+      </h4>
 
       <span>{e.when}</span>
       <br />
@@ -427,7 +430,7 @@ const ExperienceChildren = ({ e }: { e: ExperienceProps }) => {
 
   return (
     <>
-      <h3 className="m-0">{e.position}</h3>
+      <h4 className="mb-0">{e.position}</h4>
 
       <a href={org.url} target="_blank" rel="noreferrer">
         {org.name}
@@ -447,9 +450,11 @@ const EducationChildren = ({ e }: { e: EducationProps }) => {
 
   return (
     <>
-      <a href={org.url} target="_blank" rel="noreferrer">
-        <h3 className="m-0">{org.name}</h3>
-      </a>
+      <h4 className="mb-0">
+        <a href={org.url} target="_blank" rel="noreferrer">
+          {org.name}
+        </a>
+      </h4>
 
       <e.degree />
       <br />
@@ -473,19 +478,21 @@ const OrgAndProducts = ({
   return (
     <div className="flex flex-row gap-2">
       <a
-        className="mt-1 flex-shrink-0"
+        className="flex-shrink-0"
         target="_blank"
         rel="noreferrer"
         href={org.url}
       >
-        <Image
-          width={24}
-          height={24}
-          loading="eager"
-          className="object-cover"
-          src={org.logoURL ?? images[org.url]}
-          alt={org.name}
-        />
+        <h4 className="mb-0">
+          <Image
+            width={24}
+            height={24}
+            loading="eager"
+            className="object-cover"
+            src={org.logoURL ?? images[org.url]}
+            alt={org.name}
+          />
+        </h4>
       </a>
 
       <div>
@@ -603,14 +610,6 @@ const Header = ({
   </section>
 )
 
-const Summary = ({ children }: { children: ReactNode }): JSX.Element => (
-  <section>
-    <h2>Summary</h2>
-
-    {children}
-  </section>
-)
-
 // noinspection JSUnusedGlobalSymbols
 export default function CV({ ogImages }: Props): JSX.Element {
   const name = "Adel Nizamutdinov"
@@ -631,7 +630,9 @@ export default function CV({ ogImages }: Props): JSX.Element {
         linkedin="adelnizamuddin"
       />
 
-      <Summary>
+      <section>
+        <h3 className="mb-0">Summary</h3>
+
         <span>
           <span>
             10 years of building commercial software in Java, Kotlin, Typescript
@@ -640,32 +641,31 @@ export default function CV({ ogImages }: Props): JSX.Element {
           <br />
           <span>Bootstrapped a profitable SaaS</span>
         </span>
-      </Summary>
-
-      <section>
-        <h2>Experience</h2>
-        <Things>
-          {experiences.map(e => (
-            <OrgAndProducts key={e.org} e={e} images={ogImages}>
-              <ExperienceChildren e={e} />
-            </OrgAndProducts>
-          ))}
-        </Things>
       </section>
 
       <section>
-        <h2>Education</h2>
-        <Things>
-          {education.map(e => (
-            <OrgAndProducts key={e.org} e={e} images={ogImages}>
-              <EducationChildren e={e} />
-            </OrgAndProducts>
-          ))}
-        </Things>
+        <h3 className="mb-0">Experience</h3>
+
+        {experiences.map(e => (
+          <OrgAndProducts key={e.org} e={e} images={ogImages}>
+            <ExperienceChildren e={e} />
+          </OrgAndProducts>
+        ))}
       </section>
 
       <section>
-        <h2>Skills</h2>
+        <h3 className="mb-0">Education</h3>
+
+        {education.map(e => (
+          <OrgAndProducts key={e.org} e={e} images={ogImages}>
+            <EducationChildren e={e} />
+          </OrgAndProducts>
+        ))}
+      </section>
+
+      <section>
+        <h3 className="mb-0">Skills</h3>
+
         <span
           dangerouslySetInnerHTML={{
             __html: Object.values(skills).join(" •&nbsp;"),
@@ -674,19 +674,14 @@ export default function CV({ ogImages }: Props): JSX.Element {
       </section>
 
       <section>
-        <h2>Honors & Awards</h2>
-        <Things>
-          {awards.map(e => (
-            <OrgAndProducts key={e.org} e={e} images={ogImages}>
-              <Award e={e} />
-            </OrgAndProducts>
-          ))}
-        </Things>
+        <h3 className="mb-0">Honors & Awards</h3>
+
+        {awards.map(e => (
+          <OrgAndProducts key={e.org} e={e} images={ogImages}>
+            <Award e={e} />
+          </OrgAndProducts>
+        ))}
       </section>
     </div>
   )
 }
-
-const Things = ({ children }: { children: ReactNode }) => (
-  <div className="flex flex-col gap-6 print:gap-2">{children}</div>
-)
