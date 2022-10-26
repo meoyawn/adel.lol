@@ -4,7 +4,7 @@ import { Html, Head, Main, NextScript } from "next/document"
 // noinspection JSUnusedGlobalSymbols
 export default function Document(): JSX.Element {
   return (
-    <Html>
+    <Html lang="en">
       <Head>
         <link
           rel="icon"

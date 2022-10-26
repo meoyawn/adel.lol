@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react"
 import { GetStaticProps } from "next"
-
-import { ogImage } from "../lib/web"
 import Image from "next/image"
 import Head from "next/head"
+
+import { ogImage } from "../lib/web"
 
 interface Props {
   ogImages: Record<string, string>
@@ -157,7 +157,7 @@ const skills = {
   sqlite: "SQLite",
   postgres: "PostgreSQL",
 
-  stripe: "Stripe",
+  stripe: "Stripe (Software)",
   seo: "Search Engine Optimization (SEO)",
 
   crdt: "Conflict-free Replicated Data Types (CRDT)",
@@ -192,7 +192,7 @@ const ProductLink = ({
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"
         fill="currentColor"
-        className="absolute bottom-0 right-0 flex h-5 w-5 rounded-tl-lg bg-white p-1 text-gray-500"
+        className="absolute bottom-0 right-0 h-5 w-5 rounded-tl-lg bg-white p-1 text-gray-500"
       >
         <path d="M11 2a3 3 0 00-2.1.87L6.87 4.94a2.93 2.93 0 00-.72 1.21 2.93 2.93 0 00-1.21.72L2.87 8.94a3 3 0 104.19 4.19l2.07-2.07a2.93 2.93 0 00.72-1.21 2.93 2.93 0 001.21-.72l2.07-2.07A3 3 0 0011 2zm-5.17 9.89a1.22 1.22 0 01-1.72-1.72l2.06-2.06A3 3 0 007.91 9.8zm6.07-6.07L9.83 7.89A3 3 0 008.09 6.2l2.07-2.07a1.22 1.22 0 011.73 1.7z" />
       </svg>
@@ -522,6 +522,25 @@ export const getStaticProps: GetStaticProps<Props> = async () => ({
   },
 })
 
+const IconLink = ({
+  href,
+  children,
+}: {
+  href:
+    | `mailto:${string}@${string}.${string}`
+    | `https://${string}`
+    | `tel:${string}`
+  children: ReactNode
+}): JSX.Element => (
+  <a className="space-x-1" target="_blank" rel="noreferrer" href={href}>
+    {children}
+
+    <span>
+      {href.replace("mailto:", "").replace("https://", "").replace("tel:", "")}
+    </span>
+  </a>
+)
+
 const Header = ({
   email,
   phone,
@@ -530,9 +549,9 @@ const Header = ({
   name,
   location,
 }: {
-  email: string
-  phone?: string
-  website: string
+  email: `${string}@${string}.${string}`
+  phone?: `+${string}`
+  website: `https://${string}`
   linkedin: string
   name: string
   location: string
@@ -542,30 +561,19 @@ const Header = ({
     <p className="mt-0">{location}</p>
 
     <div className="grid grid-cols-2">
-      <a
-        className="space-x-1"
-        target="_blank"
-        rel="noreferrer"
-        href={`mailto:${email}`}
-      >
+      <IconLink href={`mailto:${email}`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
           fill="currentColor"
           className="inline h-4 w-4"
         >
-          <path d="M8 1L1 4.47V11a3 3 0 003 3h8a3 3 0 003-3V4.47zm5 10a1 1 0 01-1 1H4a1 1 0 01-1-1V6.51L8 9l5-2.49z"></path>
+          <path d="M8 1L1 4.47V11a3 3 0 003 3h8a3 3 0 003-3V4.47zm5 10a1 1 0 01-1 1H4a1 1 0 01-1-1V6.51L8 9l5-2.49z" />
         </svg>
-        <span>{email}</span>
-      </a>
+      </IconLink>
 
       {phone ? (
-        <a
-          className="space-x-1"
-          target="_blank"
-          rel="noreferrer"
-          href={`tel:${phone}`}
-        >
+        <IconLink href={`tel:${phone}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -574,16 +582,10 @@ const Header = ({
           >
             <path d="M4.18 11.82C6.62 14.26 8.64 15 10.79 15a3.76 3.76 0 002.66-1.1l1.32-1.32a.8.8 0 000-1.13L11.6 8.29a1 1 0 00-.69-.29 1 1 0 00-.42.09l-1.67.73-1.64-1.64.73-1.67A1 1 0 008 5.09a1 1 0 00-.29-.69L4.55 1.23a.8.8 0 00-1.13 0L2.1 2.55A3.76 3.76 0 001 5.21c0 2.15.74 4.17 3.18 6.61zm1.24-1.24c-2.34-2.34-2.67-4-2.67-5.37a2 2 0 01.59-1.42L4 3.14l2 2-1 2.32L8.54 11l2.29-1 2 2-.65.65a2 2 0 01-1.42.59c-1.38.01-3-.31-5.34-2.66z" />
           </svg>
-          <span>{phone}</span>
-        </a>
+        </IconLink>
       ) : null}
 
-      <a
-        className="space-x-1"
-        target="_blank"
-        rel="noreferrer"
-        href={`https://linkedin.com/in/${linkedin}`}
-      >
+      <IconLink href={`https://linkedin.com/in/${linkedin}`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -592,10 +594,9 @@ const Header = ({
         >
           <path d="M15 2v12a1 1 0 01-1 1H2a1 1 0 01-1-1V2a1 1 0 011-1h12a1 1 0 011 1zM5 6H3v7h2zm.25-2A1.25 1.25 0 104 5.25 1.25 1.25 0 005.25 4zM13 9.29c0-2.2-.73-3.49-2.86-3.49A2.71 2.71 0 007.89 7V6H6v7h2V9.73a1.73 1.73 0 011.52-1.92h.14C10.82 7.8 11 8.94 11 9.73V13h2z" />
         </svg>
-        <span>{linkedin}</span>
-      </a>
+      </IconLink>
 
-      <a className="space-x-1" target="_blank" rel="noreferrer" href={website}>
+      <IconLink href={website}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -604,8 +605,18 @@ const Header = ({
         >
           <path d="M11 2a3 3 0 00-2.1.87L6.87 4.94a2.93 2.93 0 00-.72 1.21 2.93 2.93 0 00-1.21.72L2.87 8.94a3 3 0 104.19 4.19l2.07-2.07a2.93 2.93 0 00.72-1.21 2.93 2.93 0 001.21-.72l2.07-2.07A3 3 0 0011 2zm-5.17 9.89a1.22 1.22 0 01-1.72-1.72l2.06-2.06A3 3 0 007.91 9.8zm6.07-6.07L9.83 7.89A3 3 0 008.09 6.2l2.07-2.07a1.22 1.22 0 011.73 1.7z"></path>
         </svg>
-        <span>{website.replace("https://", "")}</span>
-      </a>
+      </IconLink>
+
+      <IconLink href="https://github.com/meoyawn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="inline h-4 w-4"
+        >
+          <path d="M12 0a12 12 0 0 0-4 23h1v-2c-3 0-4-2-4-2l-1-2c-1 0 0 0 0 0l2 1c1 2 2 1 3 1l1-2c-3 0-6-1-6-6l2-3V5l3 1a12 12 0 0 1 6 0l3-1v3l2 3c0 5-3 6-6 6l1 3v3h1a12 12 0 0 0-4-23z" />
+        </svg>
+      </IconLink>
     </div>
   </section>
 )
@@ -615,7 +626,7 @@ export default function CV({ ogImages }: Props): JSX.Element {
   const name = "Adel Nizamutdinov"
 
   return (
-    <div className="prose prose-sky m-6 flex max-w-none flex-col print:prose-sm print:m-0 sm:m-12 md:m-16">
+    <div className="prose prose-sky m-6 max-w-none print:prose-sm print:m-0 sm:m-12 md:m-16">
       <Head>
         <title>{`CV - ${name}`}</title>
         <meta name="description" content="Making new stuff" />
