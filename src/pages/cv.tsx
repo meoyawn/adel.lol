@@ -626,7 +626,7 @@ export default function CV({ ogImages }: Props): JSX.Element {
   const name = "Adel Nizamutdinov"
 
   return (
-    <div className="prose prose-sky m-6 max-w-none print:prose-sm print:m-0 sm:m-12 md:m-16">
+    <div className="prose prose-sky m-6 max-w-none print:m-0 print:prose-sm sm:m-12 md:m-16">
       <Head>
         <title>{`CV - ${name}`}</title>
         <meta name="description" content="Making new stuff" />
@@ -644,14 +644,13 @@ export default function CV({ ogImages }: Props): JSX.Element {
       <section>
         <h3 className="mb-0">Summary</h3>
 
-        <span>
-          <span>
+        <ul>
+          <li>
             10 years of building commercial software in Java, Kotlin, Typescript
             & Python.
-          </span>
-          <br />
-          <span>Bootstrapped a profitable SaaS</span>
-        </span>
+          </li>
+          <li>Bootstrapped a profitable SaaS</li>
+        </ul>
       </section>
 
       <section>
